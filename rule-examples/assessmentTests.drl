@@ -1,0 +1,20 @@
+global Exercise nextExercise;
+
+rule "ASSESSMENT_T_A2_1"
+    when
+        AssessmentTestInput(testId.equals("a2"), assessmentAnswers.get("q5").contains("tension"))
+    then
+        nextExercise.setExerciseId("st1");
+        nextExercise.setGroupId("stretchingSoleus");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_T_A2_2"
+    when
+        AssessmentTestInput(testId.equals("a2"), assessmentAnswers.get("q5").contains("pressure")) or
+        AssessmentTestInput(testId.equals("a2"), assessmentAnswers.get("q5").contains("both"))
+    then
+       nextExercise.setExerciseId("st2");
+       nextExercise.setGroupId("stretchingSoleus");
+       nextExercise.setEntrypoint(true);
+end

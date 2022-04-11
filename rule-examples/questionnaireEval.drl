@@ -1,0 +1,33 @@
+global List<Exercise> initialExercises;
+
+rule "Q_G1_1"
+    when
+        Questionnaire(questionnaireId.equals("faam"), questionnaireAnswers.get("a1") < 3)
+    then
+        Exercise e = new Exercise();
+        e.setExerciseId("b1");
+        e.setGroupId("group1");
+        initialExercises.add(e);
+end
+
+rule "Q_G1_2"
+    when
+        Questionnaire(questionnaireId.equals("faam"), questionnaireAnswers.get("a1") >= 3)
+        Questionnaire(questionnaireId.equals("cait"), questionnaireAnswers.get("q5") < 1)
+    then
+        Exercise e = new Exercise();
+        e.setExerciseId("b2");
+        e.setGroupId("group1");
+        initialExercises.add(e);
+end
+
+rule "Q_G1_3"
+    when
+        Questionnaire(questionnaireId.equals("faam"), questionnaireAnswers.get("a8") > 3)
+        Questionnaire(questionnaireId.equals("cait"), questionnaireAnswers.get("q5") > 0)
+    then
+        Exercise e = new Exercise();
+        e.setExerciseId("b2");
+        e.setGroupId("group1");
+        initialExercises.add(e);
+end

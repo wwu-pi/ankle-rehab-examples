@@ -1,0 +1,177 @@
+global Exercise nextExercise;
+
+rule "ASSESSMENT_G_G1_1"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b1"),
+        assessmentAnswers.containsKey("q1"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5)
+    then
+        nextExercise.setExerciseId("b1");
+        nextExercise.setGroupId("group1");
+        nextExercise.setAdviceId("a00");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_G_G1_2"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b2"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+    then
+        nextExercise.setExerciseId("b1");
+        nextExercise.setGroupId("group1");
+        nextExercise.setAdviceId("a3");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_G_G1_3"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+         startingExercise.equals("b1"),
+         assessmentAnswers.containsKey("q1"),
+         Integer.parseInt(assessmentAnswers.get("q1")) < 5)
+    then
+        nextExercise.setExerciseId("b2");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(false);
+end
+
+rule "ASSESSMENT_G_G1_4"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b2"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b2"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b3"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+    then
+        nextExercise.setExerciseId("b2");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_G_G1_5"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b2"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+    then
+        nextExercise.setExerciseId("b3");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(false);
+end
+
+rule "ASSESSMENT_G_G1_6"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b3"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b3"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b4"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+    then
+        nextExercise.setExerciseId("b3");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_G_G1_7"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b3"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+    then
+        nextExercise.setExerciseId("b4");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(false);
+end
+
+rule "ASSESSMENT_G_G1_8"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b4"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) <= 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b4"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+        or
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b5"),
+        assessmentAnswers.containsKey("q1"),
+        Integer.parseInt(assessmentAnswers.get("q1")) >= 5)
+    then
+        nextExercise.setExerciseId("b4");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(true);
+end
+
+rule "ASSESSMENT_G_G1_9"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b4"),
+        assessmentAnswers.containsKey("q1"),
+        assessmentAnswers.containsKey("q2"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5,
+        Integer.parseInt(assessmentAnswers.get("q2")) > 30)
+    then
+        nextExercise.setExerciseId("b5");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(false);
+end
+
+rule "ASSESSMENT_G_G1_10"
+    when
+        AssessmentGroupInput(groupId.equals("group1"),
+        startingExercise.equals("b5"),
+        assessmentAnswers.containsKey("q1"),
+        Integer.parseInt(assessmentAnswers.get("q1")) < 5)
+    then
+        nextExercise.setExerciseId("b5");
+        nextExercise.setGroupId("group1");
+        nextExercise.setEntrypoint(true);
+end

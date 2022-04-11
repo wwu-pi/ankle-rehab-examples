@@ -1,0 +1,93 @@
+AppName "AnkleRehab"
+AppID AR
+Version "0.0.1"
+Theme {
+	Primary "#2F80ED"
+	Secondary "#56CCF2"
+}
+Provider "http://localhost:3000/"
+Dictionary {
+	tosfulll {
+		EN "abc"
+		DE "abc"
+	}
+	info {
+		EN "Information"
+		DE "Information"
+	}
+	instr {
+		EN "Instruction"
+		DE "Anweisung"
+	}
+	exercise {
+		EN "Exercise"
+		DE "Übung"
+	}
+	harder {
+		EN "Harder"
+		DE "Schwieriger"
+	}
+	complete {
+		EN "Mark as completed"
+		DE "als erledigt markieren"
+	}
+	assessment {
+		EN "Assessment"
+		DE "Einschätzung"
+	}
+	assessments {
+		EN "Assessments"
+		DE "Einschätzungen"
+	}
+	homeworkselection {
+		EN "Homework Selection"
+		DE "Übungsauswahl"
+	}
+	test {
+		EN "Test"
+		DE "Test"
+	}
+}
+BaseTabConfig {
+	AuthTab {
+		On
+		LoginPath /"api/user/login"
+		RegisterConfig {
+		RegisterPath /"api/user/register"
+		TermsOfService tosfulll	
+		}
+	}	
+	QuestTab {
+		RetrievePath {
+			GetAll /'questionnaire' 
+			GetSingle /'questionnaire/getByShortTitle' identifier shortTitle
+		}
+		SubmitPath /'questionnaireParticipation' 
+	}
+}
+CustomTab Information info {
+	Model StaticInformation { 
+		id
+		name 
+		text
+	}
+	FetchPath /"staticInformation" fetchAsList from /"staticInformation/getOnlyTitles" identifier StaticInformation.id
+	IndexScreen InformationIndex info {
+		Title StaticInformation.name
+		DetailScreen Information
+	}		
+	ContentScreen Information info {
+		HTMLBlock bind StaticInformation.text
+	}
+	InitialScreen InformationIndex
+}
+CustomTab Exercise exercise {
+	PlaceholderModel exercise
+	PlaceholderModel assessment
+	PlaceholderScreen ExerciseIndex exercise
+	PlaceholderScreen Exercise exercise
+	PlaceholderScreen AssessmentIndex assessments
+	PlaceholderScreen AssessmentHomeWork homeworkselection
+	PlaceholderScreen AssessmentTest test
+	InitialScreen ExerciseIndex
+}

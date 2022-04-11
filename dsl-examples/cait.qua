@@ -1,0 +1,191 @@
+Questionnaire CAIT "Cumberland Ankle Instability Tool"
+CalculationRule sumSection 
+Description 
+"Sehr geehrter Patient, der folgende Fragebogen dient der Erfassung von Beschwerden und Problemen, die durch Ihr Sprunggelenk verursacht werden. 
+Die dadurch gewonnenen Informationen werden uns helfen einzuschätzen, wie es Ihnen mit ihrem Sprunggelenk geht und wie gut Sie in der Lage sind, Ihre üblichen Aktivitäten zu verrichten."
+Section links "Linkes Sprunggelenk"
+Description "Folgende Aussagen betrifft meinem LINKEN Sprunggelenk..."
+	MCQuestion links1  "Ich habe Schmerzen in meinem Sprunggelenk"
+		Choice "Nie"
+		Score 5
+		Choice "Beim Sport"
+		Score 4
+		Choice "Beim Rennen auf unebenem Untergrund"
+		Score 3
+		Choice "Beim Rennen auf ebenem Untergrund"
+		Score 2		
+		Choice "Beim Gehen auf unbenem Untergrund"
+		Score 1
+		Choice "Beim Gehen auf ebenem Untergrund"
+		Score 0 
+	MCQuestion links2 "Mein Sprunggelenk fühlt sich instabil an"
+		Choice "Nie"
+		Score 4
+		Choice "Manchmal während des Sports"
+		Score 3
+		Choice "Regelmäßig während des Sports"
+		Score 2
+		Choice "Manchmal während Alltagsaktivitäten"
+		Score 1		
+		Choice "Regelmäßig während Alltagsaktivitäten"
+		Score 0
+	SCQuestion links3 "Bei schnellen Richtungswechseln fühlt sich mein Sprunggelenk instabil an"
+		Choice "Nie"
+		Score 3
+		Choice "Manchmal beim Rennen"
+		Score 2
+		Choice "Häufig beim Rennen"
+		Score 1		
+		Choice "Beim Gehen"
+		Score 0 
+	SCQuestion links4 "Beim Treppe hinuntergehen fühlt sich mein Sprunggelenk INSTABIL an"
+		Choice "Nie"
+		Score 3
+		Choice "Wenn ich schnell gehe"
+		Score 2
+		Choice "Gelegentlich"
+		Score 1		
+		Choice "Immer"
+		Score 0 
+	SCQuestion links5 "Mein Sprunggenlenk fühlt sich beim Stehen auf einem Bein INSTABIL an"
+		Choice "Nie"
+		Score 2
+		Choice "Wenn ich auf dem Fußballen stehe"
+		Score 1		
+		Choice "Wenn ich auf dem gesamten Fuß stehe"
+		Score 0 
+	MCQuestion links6 "Beim Treppe hinuntergehen fühlt sich mein Sprunggelenk INSTABIL an"
+		Choice "Nie"
+		Score 3
+		Choice "Wenn ich von einem Bein auf das andere hüpfe"
+		Score 2
+		Choice "Wenn ich auf der Stell hüpfe"
+		Score 1		
+		Choice "Wenn ich springe"
+		Score 0 						
+	MCQuestion links7 "Mein Sprunggelenk fühlt sich INSTABIL an"
+		Choice "Nie"
+		Score 4
+		Choice "Beim Rennen auf unebenem Untergrund"
+		Score 3
+		Choice "Beim Joggen auf unebenem Untergrund"
+		Score 2		
+		Choice "Beim Gehen auf unbenem Untergrund"
+		Score 1
+		Choice "Beim Gehen auf ebenem Untergrund"
+		Score 0 	
+	SCQuestion links8 "Wenn ich beginne im Sprunggelenk umzukniccken, kann ich dies normalerweise stoppen"
+		Choice "Sofort"
+		Score 3
+		Choice "Häufig"
+		Score 2
+		Choice "Manchmal"
+		Score 1	
+		Choice "Nie"
+		Score 0
+		Choice "Ich bin noch nie umgeknickt"
+		Score 3 
+	SCQuestion links9 "Nach einem typischen Umknickerignis, kehrt mein Sprunggelenk in den Normalzustand zurück"
+		Choice "Fast umgehend"
+		Score 3
+		Choice "In weniger als einem Tag"
+		Score 2
+		Choice "In 1-2 Tagen"
+		Score 1	
+		Choice "In mehr als 2 Tagen"
+		Score 0
+		Choice "Ich bin noch nie im Sprunggelenk umgeknickt"
+		Score 3 							
+Section rechts "Rechtes Sprunggelenk"
+Description "Folgende Aussagen betrifft meinem RECHTEN Sprunggelenk..."
+	MCQuestion rechts1  "Ich habe Schmerzen in meinem Sprunggelenk"
+		Choice "Nie"
+		Score 5
+		Choice "Beim Sport"
+		Score 4
+		Choice "Beim Rennen auf unebenem Untergrund"
+		Score 3
+		Choice "Beim Rennen auf ebenem Untergrund"
+		Score 2		
+		Choice "Beim Gehen auf unbenem Untergrund"
+		Score 1
+		Choice "Beim Gehen auf ebenem Untergrund"
+		Score 0 
+	MCQuestion rechts2 "Mein Sprunggelenk fühlt sich instabil an"
+		Choice "Nie"
+		Score 4
+		Choice "Manchmal während des Sports"
+		Score 3
+		Choice "Regelmäßig während des Sports"
+		Score 2
+		Choice "Manchmal während Alltagsaktivitäten"
+		Score 1		
+		Choice "Regelmäßig während Alltagsaktivitäten"
+		Score 0
+	SCQuestion rechts3 "Bei schnellen Richtungswechseln fühlt sich mein Sprunggelenk instabil an"
+		Choice "Nie"
+		Score 3
+		Choice "Manchmal beim Rennen"
+		Score 2
+		Choice "Häufig beim Rennen"
+		Score 1		
+		Choice "Beim Gehen"
+		Score 0 
+	SCQuestion rechts4 "Beim Treppe hinuntergehen fühlt sich mein Sprunggelenk INSTABIL an"
+		Choice "Nie"
+		Score 3
+		Choice "Wenn ich schnell gehe"
+		Score 2
+		Choice "Gelegentlich"
+		Score 1		
+		Choice "Immer"
+		Score 0 
+	SCQuestion rechts5 "Mein Sprunggenlenk fühlt sich beim Stehen auf einem Bein INSTABIL an"
+		Choice "Nie"
+		Score 2
+		Choice "Wenn ich auf dem Fußballen stehe"
+		Score 1		
+		Choice "Wenn ich auf dem gesamten Fuß stehe"
+		Score 0 
+	MCQuestion rechts6 "Beim Treppe hinuntergehen fühlt sich mein Sprunggelenk INSTABIL an"
+		Choice "Nie"
+		Score 3
+		Choice "Wenn ich von einem Bein auf das andere hüpfe"
+		Score 2
+		Choice "Wenn ich auf der Stell hüpfe"
+		Score 1		
+		Choice "Wenn ich springe"
+		Score 0 						
+	MCQuestion rechts7 "Mein Sprunggelenk fühlt sich INSTABIL an"
+		Choice "Nie"
+		Score 4
+		Choice "Beim Rennen auf unebenem Untergrund"
+		Score 3
+		Choice "Beim Joggen auf unebenem Untergrund"
+		Score 2		
+		Choice "Beim Gehen auf unbenem Untergrund"
+		Score 1
+		Choice "Beim Gehen auf ebenem Untergrund"
+		Score 0 	
+	SCQuestion rechts8 "Wenn ich beginne im Sprunggelenk umzukniccken, kann ich dies normalerweise stoppen"
+		Choice "Sofort"
+		Score 3
+		Choice "Häufig"
+		Score 2
+		Choice "Manchmal"
+		Score 1	
+		Choice "Nie"
+		Score 0
+		Choice "Ich bin noch nie umgeknickt"
+		Score 3 
+	SCQuestion rechts9 "Nach einem typischen Umknickerignis, kehrt mein Sprunggelenk in den Normalzustand zurück"
+		Choice "Fast umgehend"
+		Score 3
+		Choice "In weniger als einem Tag"
+		Score 2
+		Choice "In 1-2 Tagen"
+		Score 1	
+		Choice "In mehr als 2 Tagen"
+		Score 0
+		Choice "Ich bin noch nie im Sprunggelenk umgeknickt"
+		Score 3 		

@@ -1,0 +1,44 @@
+Questionnaire FESS "Der Fragebogen zur Erfassung der schmerzspezifischen Selbstwirksamkeit "
+CalculationRule sumAll
+Description "Bitte bewerten Sie, wie selbstsicher Sie darin sind die folgenden Dinge jetzt trotz des Schmerzes ausführen zu können. Um ihre Antwort anzuzeigen, umkreisen Sie bitte eine der Nummern der Skala unter jedem Item."
+Section Allgemein
+	SliderQuestion fess1 "Ich kann Dinge trotz der Schmerzen genießen."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess2 "Ich kann die meisten Dinge im Haushalt tun (z.B. aufräumen, abwaschen) trotz der Schmerzen."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess3 "Ich kann mich mit meinen Freunden oder Familienangehörigen trotz der Schmerzen so oft treffen, wie ich es früher getan habe/wie ich es gewohnt bin"
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess4 "Ich werde mit meinen Schmerzen in den meisten Situationen fertig."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess5 "Ich kann irgendeine Form von Arbeit ausüben trotz der Schmerzen („Arbeit“ beinhaltet dabei Hausarbeit, bezahlte und unbezahlte Arbeit)."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess6 "Ich kann trotz der Schmerzen immer noch viele Dinge tun, die ich gerne mache, wie z.B. Hobbies oder Freizeitaktivitäten."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess7 "Ich werde mit meinen Schmerzen auch ohne Medikamente fertig."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess8 "Ich kann trotz der Schmerzen noch die meisten meiner Ziele im Leben erreichen."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess9 "Ich kann trotz der Schmerzen noch ein normales Leben führen."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1
+	SliderQuestion fess10 "Ich kann nach und nach aktiver werden trotz der Schmerzen."
+	MinValue 0 : "Gar nicht überzeugt"
+	MaxValue 6 : "Vollkommen überzeugt"
+	Interval 1

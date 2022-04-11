@@ -1,0 +1,79 @@
+Questionnaire IPAQ "International Physical Activity Questionnaire (IPAQ)"
+CalculationRule sumAll
+Description "Wir sind daran interessiert herauszufinden welche Arten von körperlichen Aktivitäten Menschen in ihrem alltäglichen Leben vollziehen. Die Befragung bezieht sich auf die Zeit, die Sie während der letzten 7 Tage in körperlicher Aktivität verbracht haben. Bitte beantworten Sie alle Fragen (auch wenn Sie sich selbst nicht als aktive Person ansehen). 
+Bitte berücksichtigen Sie die Aktivitäten im Rahmen Ihrer Arbeit, in Haus und Garten, um von einem Ort zum anderen zu kommen und in Ihrer Freizeit für Erholung, Leibesübungen und Sport. 
+Denken Sie an all Ihre anstrengenden und moderaten Aktivitäten in den vergangenen 7 Tagen. Anstrengende Aktivitäten bezeichnen Aktivitäten die starken körperlichen Anstrengungen erfordern und bei denen Sie deutlich stärker atmen als normal. Moderate Aktivitäten bezeichnen Aktivitäten mit moderater körperlicher Anstrengung bei denen Sie ein wenig stärker atmen als normal."
+Section Teil1 "KÖRPERLICHE AKTIVITÄT AM ARBEITSPLATZ"
+Description"Im ersten Abschnitt geht es um Ihre Arbeit. Das beinhaltet bezahlte Arbeit, Landwirtschaft, freiwillige Tätigkeiten, Seminare und alle anderen unbezahlten Tätigkeiten, die Sie außerhalb von zuhause verrichtet haben. Geben Sie hier keine unbezahlten Tätigkeiten an, die Sie zuhause verrichtet haben, wie Arbeiten in Haus und Garten, anfallende Instandhaltungsarbeiten und Sorgen für die Familie. Dies wird in Abschnitt 3 befragt."	
+	SCQuestion Q1 "Haben Sie momentan einen Job oder verrichten Sie irgendwelche unbezahlte Arbeiten außerhalb von zuhause?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0 => Teil2.Q11
+	Info I1
+	"Die folgenden Fragen sind über die körperliche Aktivität in den vergangenen 7 Tagen im Rahmen Ihrer bezahlten und unbezahlten Arbeit. Dies beinhaltet keine Wegstrecken zur oder von der Arbeit."
+	SCQuestion Q2 "Haben Sie an der vergangenen 7 Tagen anstrengende körperliche Aktivitäten wie schweres Heben, Graben, schwere Bauarbeit oder Stiegen steigen im Rahmen Ihrer Arbeit verrichtet?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0 => Q5
+	OpenEndedQuestion Q3 "An wie vielen Tage?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q4 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage mit anstrengender körperlicher Aktivität im Rahmen ihrer Arbeit verbracht?"
+	InputText "Minuten pro Tag"
+	SCQuestion Q5 "Haben Sie moderaten körperlichen Aktivitäten im Rahmen der Arbeit in der der vergangenen 7 Tagen verrichtet?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0 => Q8
+	OpenEndedQuestion Q6 "An wie vielen Tage?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q7 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage mit moderater körperlicher Aktivität im Rahmen Ihrer Arbeit verbracht?"
+	InputText "Minuten pro Tag"
+	SCQuestion Q8 "Haben Sie der vergangenen 7 Tagen Fußwegstrecken von mindestens 10 Minuten ohne Unterbrechung im Rahmen Ihrer Arbeit zurückgelegt?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0 => Teil2.Q11
+	OpenEndedQuestion Q9 "An wie vielen Tagen?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q10 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage mit moderater körperlicher Aktivität im Rahmen Ihrer Arbeit verbracht?"
+	InputText "Minuten pro Tag"	
+Section Teil2 "KÖRPERLICHE AKTIVITÄT AM ARBEITSPLATZ"
+Description"In diesen Fragen geht es um die Fortbewegungen von einem Ort zum anderen, wie die Wege zu Arbeit, Geschäften, Kino, usw."
+	SCQuestion Q11 " Sind Sie in der vergangenen 7 Tagen mit einem motorisierten Verkehrsmittelwie Zug, Bus, Auto oder Straßenbahn gefahren?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0 => Q14
+	OpenEndedQuestion Q12 "An wie vielen Tagen?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q13 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage mit Fahrten in Zug, Bus, Auto, Straßenbahn oder irgendeinem motorisierten Verkehrsmittel verbracht?"
+	InputText "Minuten pro Tag"	
+	Info I2
+	"Denken Sie jetzt nur an das Fahrradfahren und zu Fuß gehen, bei dem Sie für Wege zur und von der Arbeit, für Botenwege, sowie für Wegstrecken um von einem Ort zum anderen zurückgelegt haben."
+	SCQuestion Q14 "Sind Sie in der vergangenen 7 Tagen für mindestens 10 Minuten ohne Unterbrechung Fahrrad gefahren um von einem Ort zum anderen zu gelangen?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0
+	OpenEndedQuestion Q15 "An wie vielen Tagen?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q16 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage für das Fahrradfahren von einem Ort zum anderen verwendet??"
+	InputText "Minuten pro Tag"
+	SCQuestion Q17 "Sind Sie in der vergangenen 7 Tagen für mindestens 10 Minuten ohne Unterbrechung zu Fuß gegangen um von einem Ort zum anderen zu gelangen?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0	=> Teil3.Q20
+	OpenEndedQuestion Q18 "An wie vielen Tagen?"
+	InputText "Tage pro Woche"
+	OpenEndedQuestion Q19 "Wie viel Zeit haben Sie für gewöhnlich an einem dieser Tage für das zu Fuß gehen von einem Ort zum anderen verwendet?"
+	InputText "Minuten pro Tag"	
+Section Teil3 "HAUSARBEIT, HAUSINSTANDHALTUNG UND SORGEN FÜR DIE FAMILIE"
+Description"In diesem Abschnitt geht es um körperliche Aktivitäten, die Sie in den vergangen 7 Tagen in und um ihr Haus verrichtet haben, wie Hausarbeit, Arbeiten in Hof und Garten, Instandhaltungsarbeiten und Sorgen für die Familie."	
+	SCQuestion Q20 "Haben Sie in der vergangenen 7 Tagen anstrengende körperliche Aktivitäten wie Tragen schwerer Lasten, Holzhaken, Schneeschaufeln oder Graben im Hof oder im Garten verrichtet?"
+	Choice "Ja"
+	Score 0
+	Choice "Nein"
+	Score 0	

@@ -1,0 +1,237 @@
+grammar org.xtext.feal.QuApp with org.eclipse.xtext.common.Terminals
+
+generate quApp "http://www.xtext.org/feal/QuApp"
+
+// App Model
+App:
+	'AppName' title=STRING
+	'AppID' name=ID
+	'Version' version=STRING
+	('Theme' '{'
+		'Primary' primary=STRING
+		'Secondary' secondary=STRING
+	'}')?
+	'Provider' url=STRING
+	('Dictionary' '{'
+		labels+=Label*
+	'}')?
+	'BaseTabConfig' '{'
+		auth=AuthTab
+		quest=QuestionnaireTab
+	'}'
+	(custom+=CustomTab*)
+;
+
+CustomTab:
+	'CustomTab' name=ID label=[Label|ID] '{'
+		(model=Model
+		'FetchPath' url=PathExtension 
+		(
+			asList?='fetchAsList' 'from' indexURL=PathExtension
+			'identifier' identifier=[Attribute|QualifiedName]	
+			index=IndexScreen
+		)?		
+		screens+=ContentScreen*)?
+		placeholderModels+=PlaceholderModel*
+		placeholderScreens+=PlaceholderScreen*
+		'InitialScreen' inital=[Screen|ID]
+	'}'
+;
+
+PlaceholderScreen:
+	'PlaceholderScreen' name=ID label=[Label|ID]
+;
+
+PlaceholderModel:
+	'PlaceholderModel' name=ID 
+;
+
+AuthTab:
+	'AuthTab' '{'
+		(config='On' | config='Off')
+		(
+		('UserCustomAttributes' '{' 
+			userAttr+=ProfileMap*
+			'}')?
+		'LoginPath' loginURL=PathExtension
+		'RegisterConfig' '{'
+			'RegisterPath' regURL=PathExtension	
+			'TermsOfService' tos=[Label|ID]	
+		'}'
+		)?
+	'}'
+;
+
+ProfileMap:
+	name=ID ('=>' label=[Label|ID])? 
+;
+
+QuestionnaireTab:
+	'QuestTab''{'
+		'RetrievePath' '{'
+			'GetAll' getAllURL=PathExtension 
+			'GetSingle' getSingleURL=PathExtension 'identifier' identifier=ID
+		'}'
+		'SubmitPath' postURL=PathExtension
+	'}'
+;
+
+IndexScreen:
+	'IndexScreen' name=ID label=[Label|ID] '{'
+			'Title' title=[Attribute|QualifiedName]	
+			(withImage?='Image' image=[Attribute|QualifiedName])?
+			(withText?='Text' text=[Attribute|QualifiedName])?
+			'DetailScreen' screen=[ContentScreen|ID] 
+			'}'
+;
+
+ContentScreen:			
+	'ContentScreen' name=ID label=[Label|ID] '{'
+			components+=Component*
+		'}'
+;
+
+Screen:
+	ContentScreen | IndexScreen | PlaceholderScreen
+;
+
+Component:
+	Text | Button | Heading | Image | Video | HTMLBlock
+;
+
+HTMLBlock:
+	'HTMLBlock' 'bind' bind=[Attribute|QualifiedName]
+;
+
+Text:
+	'Text' bind=Binding
+;
+
+Heading:
+	'Heading' bind=Binding
+;
+
+Button:
+	'Button' label=[Label|ID] "do" action=Action
+;
+
+Image:
+	'Image' bind=Binding
+;
+
+Video:
+	'Video' bind=Binding
+;
+
+Action:
+	BackToFront | GoToScreen | UpdateModel
+;
+
+BackToFront:
+	{BackToFront} 'BackToFront'
+;
+
+GoToScreen:
+	'GoToScreen' screen=[Screen|ID]
+;
+
+UpdateModel:
+	name=ID 'UpdateModel' 'from' url=PathExtension
+;
+
+Binding:
+	('bind' attr=[Attribute|QualifiedName]) | ('bindCustom' src=CustomBind)
+;
+
+CustomBind:
+	LabelRef|Link
+;
+
+LabelRef:
+	value=[Label|ID]
+;
+
+Link:
+	value=STRING
+;
+
+Model:
+	'Model' name=ID '{' 
+		attributes+=Attribute*
+		 '}'
+;
+
+Attribute:
+	name=ID 
+;
+
+PathExtension:
+	'/' extension=STRING
+;
+
+Label:
+	name=ID '{'
+		'EN' en=STRING
+		'DE' de=STRING
+		'}'
+;
+
+// Questionnaire Model
+
+Questionnaire:
+	'Questionnaire' name=ID title=STRING (repeat?='Repeatable')?
+	'CalculationRule' (rule="sumSection" | rule="sumAll")
+	'Description' description=STRING
+		content+=Section*
+;
+
+Section:
+	'Section' name=ID
+	(title=STRING
+	'Description' description=STRING)?
+		pages+=SectionElement*
+;
+
+SectionElement:
+	QuestionPage | InfoPage
+;
+
+InfoPage:
+	'Info' name=ID
+	description=STRING
+;
+
+QuestionPage:
+	SingleChoice | MultipleChoice | OpenEnded | Slider
+;
+
+Slider:
+	'SliderQuestion' name=ID description=STRING
+	'MinValue' min=INT ':' minText=STRING
+	'MaxValue' max=INT ':' maxText=STRING
+	'Interval' interval=INT
+;
+
+SingleChoice:
+	'SCQuestion' name=ID description=STRING
+		(answers+=Selection)*
+;
+
+MultipleChoice:
+	'MCQuestion' name=ID description=STRING
+		(answers+=Selection)*
+;
+
+OpenEnded:
+	'OpenEndedQuestion' name=ID description=STRING
+	'InputText' inputDescription=STRING
+;
+
+Selection:
+	'Choice' description=STRING 
+	'Score' value=INT ('=>' element=[SectionElement|QualifiedName])?
+;
+
+QualifiedName:
+	ID ('.' ID)?
+;
